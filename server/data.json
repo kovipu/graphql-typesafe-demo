@@ -1,0 +1,112 @@
+[
+  {
+    "id": 0,
+    "name": "Joonas Korgan",
+    "favoriteFood": "Sushi"
+  },
+  {
+    "id": 1,
+    "name": "Sami Suo-Heikki",
+    "favoriteFood": "Tacos"
+  },
+  {
+    "id": 2,
+    "name": "Teemu Kuutti",
+    "favoriteFood": "Porridge with coffee"
+  },
+  {
+    "id": 3,
+    "name": "Mikka Petotalo",
+    "favoriteFood": "Pizza"
+  },
+  {
+    "id": 4,
+    "name": "Erika Bergström",
+    "favoriteFood": "Pizza"
+  },
+  {
+    "id": 5,
+    "name": "Aleksi Hietanen",
+    "favoriteFood": "Pizza"
+  },
+  {
+    "id": 6,
+    "name": "Wille Heino",
+    "favoriteFood": "Pizza"
+  },
+  {
+    "id": 7,
+    "name": "Julius Rajala",
+    "favoriteFood": "Hamburger"
+  },
+  {
+    "id": 8,
+    "name": "Tomi Kiiski",
+    "favoriteFood": "Pizza"
+  },
+  {
+    "id": 9,
+    "name": "Konsta Purtsi",
+    "favoriteFood": "Hamburger"
+  },
+  {
+    "id": 10,
+    "name": "Jimmy Fagerholm",
+    "favoriteFood": "Pasta"
+  },
+  {
+    "id": 11,
+    "name": "Santeri Vairio",
+    "favoriteFood": "Pasta"
+  },
+  {
+    "id": 12,
+    "name": "Kristian Roth",
+    "favoriteFood": "Pea soup"
+  },
+  {
+    "id": 13,
+    "name": "Pyry Pajunpää",
+    "favoriteFood": "Pizza"
+  },
+  {
+    "id": 14,
+    "name": "Veera Ahonen",
+    "favoriteFood": "Hamburger menu"
+  },
+  {
+    "id": 15,
+    "name": "Konsta Sinisalo",
+    "favoriteFood": "Pizza"
+  },
+  {
+    "id": 16,
+    "name": "Angelin Calu",
+    "favoriteFood": "Hot wings"
+  },
+  {
+    "id": 17,
+    "name": "Topi Salonen",
+    "favoriteFood": "Sushi"
+  },
+  {
+    "id": 18,
+    "name": "Joni Virtanen",
+    "favoriteFood": "BBQ"
+  },
+  {
+    "id": 19,
+    "name": "Mikko Forsman",
+    "favoriteFood": "Hamburger"
+  },
+  {
+    "id": 20,
+    "name": "Armine Terteryan",
+    "favoriteFood": "Hamburger"
+  },
+  {
+    "id": 21,
+    "name": "Olli Mannervaara",
+    "favoriteFood": "Pizza"
+  }
+]
