@@ -1,10 +1,13 @@
 import express from 'express';
+import cors from 'cors';
 import { graphqlHTTP } from 'express-graphql';
 import { buildSchema } from 'graphql';
 
 import people from './data.json';
 
 const app = express();
+
+app.use(cors())
 
 const schema = `
   type Query {
