@@ -1,31 +1,25 @@
-import { useEffect, useState } from 'react'
+import { gql, useQuery } from "@apollo/client"
+
+import { PeopleDocument, PeopleQuery } from "../graphql/generated"
+
+gql`
+  query People {
+    people {
+      name
+      favoriteFood
+    }
+  }
+`
 
 function App() {
-  const [people, setPeople] = useState([])
+  const { data, loading } = useQuery<PeopleQuery>(PeopleDocument)
 
-  useEffect(() => {
-    const query = `
-      query {
-        people {
-          name
-          favoriteFood
-        }
-      }
-    `;
-    fetch('http://localhost:3001/graphql', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query })
-    })
-      .then(res => res.json())
-      .then(json => setPeople(json.data.people))
-  }, []);
-
+  if (loading) return <h1>"loading..."</h1>
 
   return (
     <div className="App">
       <ul>
-        {people.map(person => (
+        {data?.people?.map(person => (
           <li key={person.name}>
             {person.name} likes {person.favoriteFood}
           </li>

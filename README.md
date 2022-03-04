@@ -101,3 +101,110 @@ function App() {
 
 export default App
 ```
+
+### Setting up graphql-codegen
+
+Install deps for codegen.
+```
+npm i @graphql-codegen/typed-document-node @graphql-codegen/typescript @graphql-codegen/typescript-operations
+npm i -D vite-plugin-graphql-codegen
+```
+
+Create `codegen.yml`
+
+```yml
+schema: http://localhost:3001/graphql
+documents: './src/**/*.tsx'
+generates:
+  ./graphql/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
+    config:
+      fetcher: fetch
+```
+
+Add codegen to Vite config.
+```ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import codegen from 'vite-plugin-graphql-codegen'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), codegen()]
+})
+```
+
+### Set up apollo client
+
+Install apollo
+```
+npm i @apollo/client
+```
+
+Add client initialization to `main.tsx`
+
+```ts
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+
+const apolloClient = new ApolloClient({
+  uri: 'http://localhost:3001/graphql',
+  cache: new InMemoryCache()
+})
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ApolloProvider client={apolloClient}>
+      <App />
+    </ApolloProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+)
+```
+
+### Query data with apollo
+
+Update `App.tsx` to query with apollo.
+
+```ts
+import { gql, useQuery } from "@apollo/client"
+
+import { PeopleDocument, PeopleQuery } from "../graphql/generated"
+
+gql`
+  query People {
+    people {
+      name
+      favoriteFood
+    }
+  }
+`
+
+function App() {
+  const { data, loading } = useQuery<PeopleQuery>(PeopleDocument)
+
+  if (loading) return <h1>"loading..."</h1>
+
+  return (
+    <div className="App">
+      <ul>
+        {data?.people?.map(person => (
+          <li key={person.name}>
+            {person.name} likes {person.favoriteFood}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default App
+```
+
+Showcase type-safety.
